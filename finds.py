@@ -70,9 +70,10 @@ for n in range(len(list1)):
                 tTrue=False
         c2=list1[n]
         bh=a[c1:c2].strip()
-        bh=bh.split(";")
+        bhh=bh[:]
+        bhh=bhh.split(";")
         counterss=0
-        for nnn in bh: 
+        for nnn in bhh: 
             print(str(counterss)+"_ "+nnn)
             counterss+=1
         print("---------------")
