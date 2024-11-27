@@ -3,13 +3,14 @@ ff=input("give a .cs csharp file to find flux? ")
 f1=open(ff,"r")
 a=f1.read()
 f1.close()
-c=a
+c=a[:]
 tTrue=True
 count=0
 list1=[]
 b=0
 d=0
 e=0
+
 lens=len(a)
 while tTrue:
     b=a.find("{",count)
@@ -69,14 +70,21 @@ for n in range(len(list1)):
             if nn<1:
                 tTrue=False
         c2=list1[n]
-        bh=a[c1:c2].strip()
+        bhp=a[c1:c2]
+        bh=bhp.strip()
         bhh=bh[:]
         bhh=bhh.split(";")
         counterss=0
         for nnn in bhh: 
-            print(str(counterss)+"_ "+nnn)
+            print(str(counterss)+"_ "+nnn.strip())
             counterss+=1
         print("---------------")
+        bh=a[c1:c2]
+        fg=" " * (len(bhp))
+        
+        a=a[:c1]+fg+a[c2:]
+        
+
         calls+=1
     else:
         if chamber>0:
